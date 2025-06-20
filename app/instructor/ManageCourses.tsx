@@ -1,23 +1,8 @@
-import {
-  Button,
-  InputItem,
-  Modal,
-  Toast,
-  WhiteSpace,
-} from '@ant-design/react-native';
+import { Button, InputItem, Modal, Toast, WhiteSpace} from '@ant-design/react-native';
 import { AntDesign, Feather, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import {
-  Alert,
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Alert, FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import { supabase } from '../../config/supabaseClient';
 
 type Course = {
