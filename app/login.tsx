@@ -124,7 +124,7 @@ export default function LoginScreen() {
           <WhiteSpace size="lg" />
 
           <Button style={styles.button} onPress={handleSubmit(onSubmit)}>
-            Đăng Nhập
+            <Text style={styles.buttonText}>Đăng Nhập</Text>
           </Button>
 
           <WhiteSpace size="lg" />
@@ -207,6 +207,12 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: PRIMARY_COLOR,
     borderColor: PRIMARY_COLOR,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+    textAlign: 'center',
   },
   orText: {
     textAlign: 'center',
