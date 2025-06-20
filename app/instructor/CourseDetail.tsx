@@ -2,18 +2,9 @@ import { Button, InputItem, Modal, Toast, WhiteSpace } from '@ant-design/react-n
 import { AntDesign, Feather, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import {
-  FlatList,
-  Linking,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { FlatList, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { supabase } from '../../config/supabaseClient';
 
-// ===== Types =====
 type Course = {
   id: string;
   title: string;
@@ -40,7 +31,7 @@ export default function CourseDetailScreen() {
   const [materials, setMaterials] = useState<Material[]>([]);
   const [filter, setFilter] = useState<'all' | 'pdf' | 'video' | 'link'>('all');
 
-  // ==== Modal sửa tài liệu ====
+  // Modal sửa tài liệu
   const [isEditModalVisible, setEditModalVisible] = useState(false);
   const [editingMaterialId, setEditingMaterialId] = useState<string | null>(null);
   const [editTitle, setEditTitle] = useState('');
