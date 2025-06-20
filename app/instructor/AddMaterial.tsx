@@ -1,18 +1,7 @@
-import {
-  Button,
-  InputItem,
-  Toast,
-  WhiteSpace,
-} from '@ant-design/react-native';
+import { Button, InputItem, Toast, WhiteSpace } from '@ant-design/react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { supabase } from '../../config/supabaseClient';
 
 export default function AddMaterialScreen() {
