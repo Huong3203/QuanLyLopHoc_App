@@ -5,7 +5,7 @@ export default function TabLayout() {
   return (
     <Tabs 
     screenOptions={{
-        headerShown: false, // ✅ Ẩn header trên toàn bộ tabs
+        headerShown: false, 
       }}>
       
       <Tabs.Screen
@@ -29,14 +29,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="AddMaterial"
         options={{
-          href: null, // ✅ Không hiển thị tab này trong thanh điều hướng
+          href: null,
         }}
       />
 
       <Tabs.Screen
         name="CourseDetail"
         options={{
-          href: null, // ✅ Không hiển thị tab này trong thanh điều hướng
+          href: null, 
         }}
       />
 
