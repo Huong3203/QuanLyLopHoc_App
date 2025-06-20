@@ -1,4 +1,4 @@
-import { Card, Text, WhiteSpace, WingBlank } from '@ant-design/react-native';
+import { Button, Card, Text, WhiteSpace, WingBlank } from '@ant-design/react-native';
 import { AntDesign, Feather, Fontisto, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
@@ -52,12 +52,28 @@ export default function ProfileScreen() {
   }, []);
 
   const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      Alert.alert('Lỗi đăng xuất', error.message);
-    } else {
-      router.replace('/login');
-    }
+    Alert.alert(
+      'Xác nhận đăng xuất',
+      'Bạn có chắc muốn đăng xuất không?',
+      [
+        {
+          text: 'Hủy',
+          style: 'cancel',
+        },
+        {
+          text: 'Đăng xuất',
+          style: 'destructive',
+          onPress: async () => {
+            const { error } = await supabase.auth.signOut();
+            if (error) {
+              Alert.alert('Lỗi đăng xuất', error.message);
+            } else {
+              router.replace('/login');
+            }
+          },
+        },
+      ]
+    );
   };
 
   if (loading) {
@@ -134,12 +150,17 @@ export default function ProfileScreen() {
 
         <WhiteSpace size="xl" />
 
-        <View style={styles.logoutButton}>
-          <MaterialCommunityIcons name="logout" size={20} color="#fff" />
-          <Text style={styles.logoutText} onPress={handleLogout}>
-            Đăng xuất
-          </Text>
-        </View>
+        {/* Nút đăng xuất với màu tím + xác nhận */}
+        <Button
+          type="primary"
+          style={styles.logoutButton}
+          onPress={handleLogout}
+        >
+          <View style={styles.logoutContent}>
+            <MaterialCommunityIcons name="logout" size={18} color="#fff" />
+            <Text style={styles.logoutText}>Đăng xuất</Text>
+          </View>
+        </Button>
 
         <WhiteSpace size="lg" />
       </WingBlank>
@@ -194,18 +215,20 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   logoutButton: {
-    flexDirection: 'row',
-    backgroundColor: '#7C3AED',
+    backgroundColor: '#7C3AED', // màu tím
     borderRadius: 8,
     paddingVertical: 10,
-    justifyContent: 'center',
+  },
+  logoutContent: {
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: 8,
   },
   logoutText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: '500',
-    paddingLeft: 6,
+    marginLeft: 8,
   },
 });
